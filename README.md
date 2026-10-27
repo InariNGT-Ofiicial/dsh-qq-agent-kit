@@ -62,7 +62,7 @@ node src/bridge.mjs
 
 ## R4 上云
 
-目前没有云端验收记录。先在指定服务器执行只读 `bash scripts/cloud-preflight.sh`，确认 OS/架构、Node、磁盘、内存及端口，再选择匹配 Linux/Windows 的 QQ 与 NapCat 发行物。这里下载的是 Windows Shell 包，不能复制到 Linux 直接运行。
+已找回原服务器，SSH及只读预检通过；已有其他QQ的NapCat/AstrBot和官方Bot，未迁移本次小号。详见 [云端预检](docs/云端预检.md)。可在目标服务器执行只读 `bash scripts/cloud-preflight.sh`，确认 OS/架构、Node、磁盘、内存及端口，再选择匹配 Linux/Windows 的 QQ 与 NapCat 发行物。这里下载的是 Windows Shell 包，不能复制到 Linux 直接运行。
 
 云端需同时运行 QQ/NapCat、DSH 与本桥接。不要迁移整台本机的 `.local/` 或整个 `.dsh/`；重新生成接口令牌，由账号持有人完成云端登录。通过 SSH 隧道访问管理页；不开放公网管理/API端口。容器间应使用受控私网地址，不能照抄同机127.0.0.1。云端登录、模型回复、私聊往返、服务重启、重新登录、停止回滚分别验收后，才能标记 R4 完成。
 
