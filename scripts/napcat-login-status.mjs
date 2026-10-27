@@ -7,7 +7,7 @@ const base=`http://127.0.0.1:${config.port}/api`;
 async function post(route,body={},credential){
  const r=await fetch(base+route,{method:'POST',headers:{'Content-Type':'application/json',...(credential?{Authorization:`Bearer ${credential}`}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(8000)});
  if(!r.ok)throw new Error(`HTTP ${r.status}`);
- const j=await r.json();if(j.code!==0)throw new Error('Local management request failed');return j.data;
+ const j=await r.json();if(j.code!==0)throw new Error('Local management request failed: '+String(j.message??j.msg??j.code).replace(/https?:\/\/\S+/g,'[url]').replace(/\d{5,}/g,'[number]').replace(/[A-Za-z0-9_-]{24,}/g,'[redacted]').slice(0,200));return j.data;
 }
 const auth=await post('/auth/login',{hash:createHash('sha256').update(config.token+'.napcat').digest('hex')});
 if(process.argv.includes('--retry')){

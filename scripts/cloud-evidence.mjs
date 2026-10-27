@@ -1,0 +1,8 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'..');
+const log=path.join(root,'.local/dsh-qq-personal-bridge.out.log');
+const events=fs.existsSync(log)?fs.readFileSync(log,'utf8').split('\n').filter(Boolean).flatMap(l=>{try{return[JSON.parse(l)]}catch{return[]}}):[];
+const state=path.join(root,'.local/bridge-state.json');
+const s=fs.existsSync(state)?JSON.parse(fs.readFileSync(state)):{};
+console.log(JSON.stringify({at:new Date().toISOString(),pairedPeers:JSON.parse(fs.readFileSync(path.join(root,'.local/config.json'))).allowedPeers.length,replies:s.replies??0,events:events.slice(-12).map(e=>({at:e.at,event:e.event,decision:e.decision,stage:e.stage,replyLength:e.replyLength}))},null,2));

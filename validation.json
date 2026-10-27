@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-27T15:39:52.299Z",
+  "asOf": "2026-10-27T15:58:16.107Z",
   "route": "R1",
   "versions": {
     "node": "24.21.0",
@@ -34,12 +34,19 @@
     "cloudModelRestartPassed": true,
     "cloudQqLoggedIn": false,
     "cloudPrivateRoundTrip": false,
-    "localExperimentStoppedForMigration": true
+    "localExperimentStoppedForMigration": true,
+    "cloudInitialLoginPassed": true,
+    "cloudExpectedAccountVerified": true,
+    "cloudBridgeStartedOnce": true,
+    "cloudQqRestartPassed": false,
+    "cloudDisplayRestartBugFixed": true,
+    "cloudPhoneVerificationRequired": true,
+    "cloudOnebotRejectsUnauthenticatedRequests": true
   },
   "pending": [
-    "Owner scans cloud QQ login QR",
-    "Verify expected QQ identity and enable cloud bridge",
-    "Cloud live private message and restart/relogin verification"
+    "Owner completes QQ-required phone verification",
+    "Enable bridge after identity/online check",
+    "Fresh cloud private message and recovery validation"
   ],
   "notes": "No credentials, QQ numbers, chat bodies or server addresses included. Component success is not end-to-end success.",
   "liveEvidence": {
@@ -54,7 +61,8 @@
     "napcat": "4.18.41",
     "imageId": "sha256:141f1071d91e0784fa9268d68789790e7c95f2acf81a0b891361ac5a5b1bf5ba",
     "visibleTools": 0,
-    "loginPhase": "waiting_qrcode",
-    "existingServicesPreserved": true
+    "loginPhase": "waiting_phone_verification_after_restart",
+    "existingServicesPreserved": true,
+    "imageTag": "dsh-qq-personal-napcat:4.18.41-r2"
   }
 }

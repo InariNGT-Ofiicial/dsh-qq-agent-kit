@@ -22,6 +22,10 @@ for(const [name,cmd,limit] of [
  ['dsh-qq-personal-model',`${node} ${root}/node_modules/@deepseek-ai/dsh/lib/bin.js web --host 127.0.0.1 --port 13080 --no-open`,'384M'],
  ['dsh-qq-personal-bridge',`${node} ${root}/src/bridge.mjs`,'128M']
 ]){
+for(const suffix of ['out','err']){
+ const log=path.join(root,'.local',`${name}.${suffix}.log`);
+ if(!fs.existsSync(log))fs.writeFileSync(log,'',{mode:0o600});
+}
 const unit=`[Unit]\nDescription=${name}\nAfter=network-online.target\nWants=network-online.target\nStartLimitIntervalSec=300\nStartLimitBurst=5\n\n[Service]\nType=simple\nUser=${user}\nWorkingDirectory=${root}\nEnvironment=DSH_HOME=${cfg.dshHome}\nEnvironment=DSH_TELEMETRY_DISABLED=1\nEnvironment=NODE_OPTIONS=--max-old-space-size=256\nExecStart=${cmd}\nRestart=on-failure\nRestartSec=10\nUMask=0077\nNoNewPrivileges=true\nMemoryMax=${limit}\nTasksMax=128\nStandardOutput=append:${root}/.local/${name}.out.log\nStandardError=append:${root}/.local/${name}.err.log\n\n[Install]\nWantedBy=multi-user.target\n`;
 fs.writeFileSync(path.join(root,'.local/systemd',name+'.service'),unit);
 }

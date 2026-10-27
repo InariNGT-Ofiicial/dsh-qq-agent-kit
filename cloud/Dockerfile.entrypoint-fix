@@ -1,0 +1,5 @@
+FROM sha256:141f1071d91e0784fa9268d68789790e7c95f2acf81a0b891361ac5a5b1bf5ba
+USER root
+COPY qq-personal-entrypoint.sh /app/qq-personal-entrypoint.sh
+RUN chmod 755 /app/qq-personal-entrypoint.sh
+ENTRYPOINT ["bash", "/app/qq-personal-entrypoint.sh"]
