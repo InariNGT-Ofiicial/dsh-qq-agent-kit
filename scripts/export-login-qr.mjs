@@ -12,6 +12,7 @@ const j=await r.json();if(!r.ok||j.code!==0)throw new Error('Local management re
 const auth=await post('/auth/login',{hash:createHash('sha256').update(cfg.token+'.napcat').digest('hex')});
 const status=await post('/QQLogin/CheckLoginStatus',{},auth.Credential);
 if(status.isLogin){console.log('Already logged in; no QR exported');process.exit(0);}
+if(process.argv.includes('--refresh'))await post('/QQLogin/RefreshQRcode',{},auth.Credential);
 const qr=await post('/QQLogin/GetQQLoginQrcode',{},auth.Credential);
 if(typeof qr.qrcode!=='string'||!qr.qrcode)throw new Error('QR not ready');
 fs.writeFileSync(path.join(root,'.local/login-qr-url.txt'),qr.qrcode,{mode:0o600});
