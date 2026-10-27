@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {classify} from './policy.mjs';
 import {onebot} from './onebot.mjs';
 import {askDsh} from './dsh-turn.mjs';
+import {savePairing} from './config.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const configFile=path.join(root,'.local/config.json');
 const cfg=JSON.parse(fs.readFileSync(configFile,'utf8'));
@@ -22,24 +23,27 @@ socket.addEventListener('open',()=>audit('onebot_connected'));
 socket.addEventListener('message',async({data})=>{
  let event;try{event=JSON.parse(String(data));}catch{return;}
  const result=classify(event,cfg,seen);
+ if(event.message_type==='private'&&cfg.allowedPeers.map(String).includes(String(event.user_id)))audit('private_event',{decision:result.kind});
  if(!['pair','prompt'].includes(result.kind))return;
  if(busy)return; // Explicitly no automatic replay or backlog after overload.
  busy=true;remember(result.key);
+ let stage='model';
  try {
    if(result.kind==='pair'){
-     cfg.allowedPeers=[result.peer];delete cfg.pairingNonce;delete cfg.pairingExpiresAt;
-     fs.writeFileSync(configFile,JSON.stringify(cfg,null,2),{mode:0o600});
+     Object.assign(cfg,savePairing(configFile,result.peer));delete cfg.pairingNonce;delete cfg.pairingExpiresAt;
      state.paired=true;save();audit('paired');
-     await onebot(cfg,'send_private_msg',{user_id:Number(result.peer),message:[{type:'text',data:{text:'私聊测试已配对。后续请以 /dsh 空格 开头发送测试问题。'}}]});
+     stage='send';
+     await onebot(cfg,'send_private_msg',{user_id:Number(result.peer),message:[{type:'text',data:{text:'私聊测试已配对。现在直接发送文字即可，也支持 /dsh 空格 开头。'}}]});
      return;
    }
    if(process.argv.includes('--pair-only')){audit('prompt_skipped_pair_only');return;}
    const reply=await askDsh(cfg,result.prompt);
    const text=reply.text.slice(0,3000);
+   stage='send';
    // Marked before send: ambiguous network failures must never resend automatically.
    await onebot(cfg,'send_private_msg',{user_id:Number(result.peer),message:[{type:'text',data:{text}}]});
    state.replies++;save();audit('private_round_trip',{replyLength:text.length,messageKeyHash:createHash('sha256').update(result.key).digest('hex').slice(0,12)});
- }catch{audit('request_failed');}finally{busy=false;}
+ }catch{audit('request_failed',{stage});}finally{busy=false;}
 });
 socket.addEventListener('error',()=>audit('onebot_error'));
 socket.addEventListener('close',()=>{audit('onebot_closed');process.exitCode=1;});

@@ -11,7 +11,8 @@ export function classify(event,cfg,seen=new Set(),now=Date.now()) {
   const peer=String(event.user_id);
   if(cfg.allowedPeers.length===0&&cfg.pairingNonce&&now<=cfg.pairingExpiresAt&&text===`/dsh-pair ${cfg.pairingNonce}`) return {kind:'pair',peer,key};
   if(!cfg.allowedPeers.map(String).includes(peer)) return {kind:'denied'};
-  if(!text.startsWith(cfg.commandPrefix)) return {kind:'ignore'};
-  const prompt=text.slice(cfg.commandPrefix.length).trim();
+  if(text.startsWith('/dsh-pair '))return {kind:'ignore'};
+  if(cfg.requirePrefix===true&&!text.startsWith(cfg.commandPrefix)) return {kind:'ignore'};
+  const prompt=(text.startsWith(cfg.commandPrefix)?text.slice(cfg.commandPrefix.length):text).trim();
   return prompt?{kind:'prompt',peer,key,prompt}:{kind:'ignore'};
 }

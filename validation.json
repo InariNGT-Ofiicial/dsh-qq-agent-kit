@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-27T14:48:25.150Z",
+  "asOf": "2026-10-27T15:02:44.123Z",
   "route": "R1",
   "versions": {
     "node": "24.21.0",
@@ -18,15 +18,19 @@
     "toolExecutionGuardInstalled": true,
     "modelSmokeReply": "DSH本机测试通过",
     "modelSmokeCompletedAt": "2026-10-27T14:28:22.060Z",
-    "policyTestsPassed": 6,
-    "realPrivateMessageRoundTrip": false,
+    "policyTestsPassed": 8,
+    "realPrivateMessageRoundTrip": true,
     "cloudDeployed": false,
     "privatePairingConfirmed": true,
     "cloudSshVerified": true,
-    "cloudReadOnlyPreflightPassed": true
+    "cloudReadOnlyPreflightPassed": true,
+    "privateRoundTripMode": "explicit recovery of latest authorized incoming message",
+    "replyAcknowledgedByOneBot": true,
+    "replyPresentInPrivateHistory": true,
+    "liveListenerRoundTrip": false
   },
   "pending": [
-    "Actual private model reply confirmation",
+    "Fresh private message through live listener and user receipt confirmation",
     "Independent cloud deployment preserving existing QQ services",
     "Restart/relogin recovery and unattended operation"
   ],

@@ -1,0 +1,24 @@
+// Explicit operator recovery, never called automatically. Stop bridge first.
+import fs from 'node:fs';
+import {classify} from '../src/policy.mjs';
+import {onebot} from '../src/onebot.mjs';
+import {askDsh} from '../src/dsh-turn.mjs';
+const local=new URL('../.local/',import.meta.url);
+const cfg=JSON.parse(fs.readFileSync(new URL('config.json',local),'utf8'));
+if(cfg.allowedPeers.length!==1)throw new Error('Exactly one paired peer required');
+const login=await onebot(cfg,'get_login_info');
+if(String(login.user_id)!==cfg.selfId)throw new Error('Unexpected QQ account');
+const response=await fetch(cfg.onebotHttp+'/get_friend_msg_history',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+cfg.onebotToken},body:JSON.stringify({user_id:Number(cfg.allowedPeers[0]),count:6}),signal:AbortSignal.timeout(10000)});
+const history=await response.json();
+if(history.status!=='ok')throw new Error('History unavailable');
+const message=(history.data?.messages??[]).filter(m=>String(m.user_id)===String(cfg.allowedPeers[0])).sort((a,b)=>b.time-a.time)[0];
+if(!message||Date.now()/1000-message.time>900)throw new Error('No recent peer message within 15 minutes');
+const stateFile=new URL('bridge-state.json',local);
+const state=JSON.parse(fs.readFileSync(stateFile,'utf8'));
+const decision=classify(message,cfg,new Set(state.seen));
+if(decision.kind!=='prompt')throw new Error('Latest message is not an eligible unseen prompt');
+state.seen.push(decision.key);fs.writeFileSync(stateFile,JSON.stringify(state));
+const reply=await askDsh(cfg,decision.prompt);
+const ack=await onebot(cfg,'send_private_msg',{user_id:Number(decision.peer),message:[{type:'text',data:{text:reply.text.slice(0,3000)}}]});
+state.replies++;state.lastRecovery={at:new Date().toISOString(),replyLength:reply.text.length,sendAcknowledged:ack.message_id!==undefined};fs.writeFileSync(stateFile,JSON.stringify(state));
+console.log(JSON.stringify({event:'recovered_private_round_trip',...state.lastRecovery}));
