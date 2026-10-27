@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-27T15:15:54.456Z",
+  "asOf": "2026-10-27T15:39:52.299Z",
   "route": "R1",
   "versions": {
     "node": "24.21.0",
@@ -28,11 +28,18 @@
     "replyAcknowledgedByOneBot": true,
     "replyPresentInPrivateHistory": true,
     "liveListenerRoundTrip": true,
-    "userConfirmedReceipt": true
+    "userConfirmedReceipt": true,
+    "cloudInfrastructureDeployed": true,
+    "cloudModelSmokePassed": true,
+    "cloudModelRestartPassed": true,
+    "cloudQqLoggedIn": false,
+    "cloudPrivateRoundTrip": false,
+    "localExperimentStoppedForMigration": true
   },
   "pending": [
-    "Independent cloud deployment preserving existing QQ services",
-    "Restart/relogin recovery and unattended operation"
+    "Owner scans cloud QQ login QR",
+    "Verify expected QQ identity and enable cloud bridge",
+    "Cloud live private message and restart/relogin verification"
   ],
   "notes": "No credentials, QQ numbers, chat bodies or server addresses included. Component success is not end-to-end success.",
   "liveEvidence": {
@@ -40,5 +47,14 @@
     "sentAt": "2026-10-27T15:14:20.718Z",
     "replyLength": 13,
     "elapsedMs": 1276
+  },
+  "cloud": {
+    "node": "24.21.0",
+    "qq": "3.2.34-53644",
+    "napcat": "4.18.41",
+    "imageId": "sha256:141f1071d91e0784fa9268d68789790e7c95f2acf81a0b891361ac5a5b1bf5ba",
+    "visibleTools": 0,
+    "loginPhase": "waiting_qrcode",
+    "existingServicesPreserved": true
   }
 }

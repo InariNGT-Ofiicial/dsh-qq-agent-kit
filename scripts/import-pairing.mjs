@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'..');
+const file=path.join(root,'.local/config.json');
+const cfg=JSON.parse(fs.readFileSync(file,'utf8'));
+const approved=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+if(cfg.selfId!==approved.selfId||approved.allowedPeers.length!==1||!approved.allowedPeers.every(p=>/^\d{5,12}$/.test(p)))throw new Error('Account or approved peer mismatch');
+if(cfg.allowedPeers.length&&!cfg.allowedPeers.every(p=>approved.allowedPeers.includes(p)))throw new Error('Existing peers differ');
+cfg.allowedPeers=approved.allowedPeers;delete cfg.pairingNonce;delete cfg.pairingExpiresAt;
+fs.writeFileSync(file,JSON.stringify(cfg,null,2),{mode:0o600});
+console.log('Migrated existing one-peer authorization; model config preserved.');

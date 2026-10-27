@@ -1,0 +1,17 @@
+FROM sha256:57ad1f81bf008f38fa3666676a8c35ac55287c50120a92363eabf8e266b0310e
+# Existing user-deployed base, recorded by immutable local image ID. No pull.
+USER root
+WORKDIR /app
+COPY QQ.deb NapCat.Shell.zip qq-personal-entrypoint.sh /app/
+RUN echo '6801f93e533846cea05f4f531874a0e84371ab2331c5585b57cd7e3b869cf96b  NapCat.Shell.zip' | sha256sum -c - \
+ && echo '436c65e1dd28422e128a21cbddb5fe4e2e6c079d7f27fec2541e014d38cc336e  QQ.deb' | sha256sum -c - \
+ && test "$(dpkg-deb -f QQ.deb Version)" = '3.2.34-53644' \
+ && dpkg -i --force-depends QQ.deb \
+ && rm -f QQ.deb \
+ && find /app/napcat -mindepth 1 -maxdepth 1 ! -name config -exec rm -rf -- {} + \
+ && mkdir -p /app/napcat \
+ && unzip -qo NapCat.Shell.zip -d /app/napcat \
+ && printf '%s\n' "(async () => {await import('file:///app/napcat/napcat.mjs');})();" > /opt/QQ/resources/app/loadNapCat.js \
+ && sed -i 's|"main": "[^"]*"|"main": "./loadNapCat.js"|' /opt/QQ/resources/app/package.json \
+ && chmod 755 /app/qq-personal-entrypoint.sh
+ENTRYPOINT ["bash", "/app/qq-personal-entrypoint.sh"]
