@@ -1,6 +1,9 @@
 {
-  "asOf": "2026-10-27T15:58:16.107Z",
-  "route": "R1",
+  "asOf": "2026-10-27T16:19:22.866Z",
+  "route": [
+    "R1",
+    "R4"
+  ],
   "versions": {
     "node": "24.21.0",
     "qq": "9.9.36-53644",
@@ -20,7 +23,7 @@
     "modelSmokeCompletedAt": "2026-10-27T14:28:22.060Z",
     "policyTestsPassed": 8,
     "realPrivateMessageRoundTrip": true,
-    "cloudDeployed": false,
+    "cloudDeployed": true,
     "privatePairingConfirmed": true,
     "cloudSshVerified": true,
     "cloudReadOnlyPreflightPassed": true,
@@ -32,21 +35,24 @@
     "cloudInfrastructureDeployed": true,
     "cloudModelSmokePassed": true,
     "cloudModelRestartPassed": true,
-    "cloudQqLoggedIn": false,
-    "cloudPrivateRoundTrip": false,
+    "cloudQqLoggedIn": true,
+    "cloudPrivateRoundTrip": true,
     "localExperimentStoppedForMigration": true,
     "cloudInitialLoginPassed": true,
     "cloudExpectedAccountVerified": true,
     "cloudBridgeStartedOnce": true,
     "cloudQqRestartPassed": false,
     "cloudDisplayRestartBugFixed": true,
-    "cloudPhoneVerificationRequired": true,
-    "cloudOnebotRejectsUnauthenticatedRequests": true
+    "cloudPhoneVerificationRequired": false,
+    "cloudOnebotRejectsUnauthenticatedRequests": true,
+    "cloudUserConfirmedReceipt": true,
+    "cloudBridgeActive": true,
+    "cloudManualRecoveryPassed": true,
+    "cloudPhoneVerificationMayBeRequiredOnRecovery": true
   },
   "pending": [
-    "Owner completes QQ-required phone verification",
-    "Enable bridge after identity/online check",
-    "Fresh cloud private message and recovery validation"
+    "Unattended QQ relogin without phone verification is not established",
+    "Long-running stability, concurrency, attachments and groups are outside this acceptance"
   ],
   "notes": "No credentials, QQ numbers, chat bodies or server addresses included. Component success is not end-to-end success.",
   "liveEvidence": {
@@ -59,10 +65,26 @@
     "node": "24.21.0",
     "qq": "3.2.34-53644",
     "napcat": "4.18.41",
-    "imageId": "sha256:141f1071d91e0784fa9268d68789790e7c95f2acf81a0b891361ac5a5b1bf5ba",
+    "imageId": "sha256:2bb769f04660e8d0a6cc82f1243fd7f8139504c6ff8d2526da0ab7e77a9c9bac",
     "visibleTools": 0,
-    "loginPhase": "waiting_phone_verification_after_restart",
+    "loginPhase": "ready",
     "existingServicesPreserved": true,
     "imageTag": "dsh-qq-personal-napcat:4.18.41-r2"
+  },
+  "cloudLiveEvidence": {
+    "verifiedAt": "2026-10-27T16:17:37.397Z",
+    "timezone": "Asia/Shanghai",
+    "receivedAt": "2026-10-27T16:17:11.138Z",
+    "sentAt": "2026-10-27T16:17:13.956Z",
+    "elapsedMs": 2818,
+    "replyLength": 152,
+    "userConfirmedReceipt": true,
+    "localExperimentStopped": true,
+    "expectedAccount": true,
+    "online": true,
+    "good": true,
+    "modelService": "active",
+    "bridgeService": "active",
+    "existingServicesPreserved": true
   }
 }

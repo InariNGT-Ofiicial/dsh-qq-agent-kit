@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-27T16:17:37.397Z",
+  "timezone": "Asia/Shanghai",
+  "receivedAt": "2026-10-27T16:17:11.138Z",
+  "sentAt": "2026-10-27T16:17:13.956Z",
+  "elapsedMs": 2818,
+  "replyLength": 152,
+  "userConfirmedReceipt": true,
+  "localExperimentStopped": true,
+  "expectedAccount": true,
+  "online": true,
+  "good": true,
+  "modelService": "active",
+  "bridgeService": "active",
+  "existingServicesPreserved": true
+}
