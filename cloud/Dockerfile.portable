@@ -1,0 +1,10 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+USER root
+WORKDIR /app
+RUN echo '6801f93e533846cea05f4f531874a0e84371ab2331c5585b57cd7e3b869cf96b  /app/NapCat.Shell.zip' | sha256sum -c - \
+ && mkdir -p /app/napcat \
+ && unzip -qo /app/NapCat.Shell.zip -d /app/napcat
+COPY qq-personal-entrypoint.sh /app/qq-personal-entrypoint.sh
+RUN chmod 755 /app/qq-personal-entrypoint.sh
+ENTRYPOINT ["bash", "/app/qq-personal-entrypoint.sh"]
