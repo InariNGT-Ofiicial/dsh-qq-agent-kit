@@ -3,6 +3,10 @@ import path from 'node:path';
 import os from 'node:os';
 const root=path.resolve(import.meta.dirname,'..');
 const cfg=JSON.parse(fs.readFileSync(path.join(root,'.local/config.json'),'utf8'));
+const instance=cfg.instanceName??'dsh-qq-personal';
+if(!/^dsh-qq-[a-z0-9-]{1,40}$/.test(instance))throw new Error('Unsafe instance name');
+const endpoint=new URL(cfg.dshUrl);
+if(endpoint.hostname!=='127.0.0.1'||!/^\d+$/.test(endpoint.port))throw new Error('Invalid isolated model endpoint');
 if(process.platform!=='linux')throw new Error('Linux only');
 if(!/^[A-Za-z0-9_./-]+$/.test(root))throw new Error('Unsupported service path');
 const user=os.userInfo().username;
@@ -19,8 +23,8 @@ fs.mkdirSync(path.join(root,'.local/qq'),{recursive:true});
 fs.mkdirSync(path.join(root,'.local/systemd'),{recursive:true});
 fs.mkdirSync(path.join(cfg.dshHome,'logs'),{recursive:true});
 for(const [name,cmd,limit] of [
- ['dsh-qq-personal-model',`${node} ${root}/node_modules/@deepseek-ai/dsh/lib/bin.js web --host 127.0.0.1 --port 13080 --no-open`,'384M'],
- ['dsh-qq-personal-bridge',`${node} ${root}/src/bridge.mjs`,'128M']
+ [instance+'-model',`${node} ${root}/node_modules/@deepseek-ai/dsh/lib/bin.js web --host 127.0.0.1 --port ${endpoint.port} --no-open`,'384M'],
+ [instance+'-bridge',`${node} ${root}/src/bridge.mjs`,'128M']
 ]){
 for(const suffix of ['out','err']){
  const log=path.join(root,'.local',`${name}.${suffix}.log`);

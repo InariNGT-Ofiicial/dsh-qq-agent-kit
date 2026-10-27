@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "scope": "Fresh source directory and isolated runtime on an existing Docker host; no QQ login",
+  "baseManifestDigest": "sha256:69c5ca84ec226d658d0d5cd19997c6c89169da3206faa2948c2dc67d669b6406",
+  "builtImageId": "sha256:0f7c2189794989ff325bcee389b063b253722afc5af1b67716802a2220668542",
+  "baseTransfer": "Official registry manifest and all blobs downloaded on workstation, size/SHA256 verified, transferred by SSH and served by temporary loopback-only fixed-image cache",
+  "preexistingOfficialLayerCache": true,
+  "oldCustomImageUsedAsBase": false,
+  "productionQqStateCopied": false,
+  "runtime": {"node": "24.21.0", "independentlyDownloaded": true, "officialChecksumVerified": true, "rootAndVendorLocksInstalled": true},
+  "imageBuild": {"passed": true, "shellZipHashVerified": true, "requiredProgramsChecked": true},
+  "initialStart": {"managementAuth": true, "qrReady": true, "isLogin": false, "loginPhase": "waiting_qrcode", "coreReady": false, "hasLoginError": false},
+  "containerRestart": {"managementAuth": true, "qrReady": true, "isLogin": false, "loginPhase": "waiting_qrcode", "coreReady": false, "hasLoginError": false},
+  "isolatedModel": {"realCallPassed": true, "replyAtUtc": "2026-10-27T16:47:35.053Z", "visibleTools": 0, "coldReadinessWithoutKeyPassed": true, "temporaryKeyCopyExplicitlyAuthorized": true, "temporaryKeyCopyRemoved": true},
+  "ownershipGuard": {"missingRehearsalBridgeRejectedBeforeRestart": true},
+  "cleanup": {"testContainer": "exited", "testContainerRestartPolicy": "no", "testModel": "inactive", "testModelEnabled": false, "registryRelayStopped": true, "testListenersClosed": true},
+  "productionAfter": {"checkedAtUtc": "2026-10-27T16:58:59.112Z", "containerAndModelAndBridgeStartTimesUnchanged": true, "expectedAccount": true, "online": true, "good": true, "modelReachable": true},
+  "notTested": ["Fresh operating-system Docker installation", "New instance phone scan/login", "Post-login OneBot transport", "New instance pairing and real private-message round trip", "Unattended QQ relogin"],
+  "privacy": "No account numbers, credentials, login URLs, QR images or chat messages included"
+}

@@ -13,5 +13,15 @@
   "binaryRedistribution": false,
   "notes": "Custom built image is not claimed to equal the official image digest. No host privileged mounts or production QQ state copied.",
   "deployedImageId": "sha256:2bb769f04660e8d0a6cc82f1243fd7f8139504c6ff8d2526da0ab7e77a9c9bac",
-  "entrypointFix": "Remove stale X99 lock/socket and wait for display readiness before QQ startup"
+  "entrypointFix": "Remove stale X99 lock/socket and wait for display readiness before QQ startup",
+  "portableRehearsal": {
+    "date": "2026-10-28",
+    "dockerfile": "Dockerfile.portable",
+    "imageId": "sha256:0f7c2189794989ff325bcee389b063b253722afc5af1b67716802a2220668542",
+    "officialBaseDigest": "sha256:69c5ca84ec226d658d0d5cd19997c6c89169da3206faa2948c2dc67d669b6406",
+    "transfer": "Hash-verified official manifest and blobs via workstation and loopback registry cache",
+    "passed": ["Build", "Authenticated WebUI", "Fresh QR", "Container restart to QR", "Isolated DSH call"],
+    "qqAccountLoggedIn": false,
+    "evidence": "../evidence/portable-rehearsal-2026-10-28.json"
+  }
 }

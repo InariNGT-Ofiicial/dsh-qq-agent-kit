@@ -9,4 +9,4 @@ printf 'container='; if command -v docker >/dev/null 2>&1; then docker --version
 printf 'init='; ps -p 1 -o comm=
 printf 'memory_kib='; awk '/MemTotal/ {print $2}' /proc/meminfo
 df -Pk .
-printf 'lab_listeners:\n'; if command -v ss >/dev/null 2>&1; then ss -lnt | awk 'NR==1 || /:(13000|13001|13080|16099)[[:space:]]/'; fi
+printf 'lab_listeners:\n'; if command -v ss >/dev/null 2>&1; then ss -lnt | awk 'NR==1 || /:(13000|13001|13080|16099|23000|23001|23080|26099)[[:space:]]/'; fi

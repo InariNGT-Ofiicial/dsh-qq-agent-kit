@@ -1,7 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
-const log=path.join(root,'.local/dsh-qq-personal-bridge.out.log');
+const cfg=JSON.parse(fs.readFileSync(path.join(root,'.local/config.json')));
+const instance=cfg.instanceName??'dsh-qq-personal';
+if(!/^dsh-qq-[a-z0-9-]{1,40}$/.test(instance))throw new Error('Unsafe instance name');
+const log=path.join(root,'.local',instance+'-bridge.out.log');
 const events=fs.existsSync(log)?fs.readFileSync(log,'utf8').split('\n').filter(Boolean).flatMap(l=>{try{return[JSON.parse(l)]}catch{return[]}}):[];
 const state=path.join(root,'.local/bridge-state.json');
 const s=fs.existsSync(state)?JSON.parse(fs.readFileSync(state)):{};

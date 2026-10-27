@@ -8,7 +8,7 @@
 
 实测版本：Windows QQ 9.9.36-53644、Node 24.21.0、NapCat 4.18.41、DSH 0.2.1-rc.2；云端 Linux QQ 3.2.34-53644、Linux x86_64、systemd、Docker。依赖由两个锁文件固定；不自行升级。安装源码和来源见根目录及 cloud 下的 provenance.json。
 
-本地 2026-10-27、云端 2026-10-28 均有配对私聊自动回复及人类收件确认，云端验收时本地实例已停止。证据见 `validation.json` 与 `evidence/`。原云端使用既有基础镜像私有构建；本次新增 `Dockerfile.portable` 和构建入口只做静态/脚本检查，**尚未在全新服务器完成拉取、构建与私聊验收**。分发后的 Agent 必须完成这些检查再宣称目标部署通过。旧 Dockerfile.local-base/entrypoint-fix 仅用于复现历史构建，不作为新机器默认入口。
+本地 2026-10-27、云端 2026-10-28 均有配对私聊自动回复及人类收件确认，云端验收时本地实例已停止。证据见 `validation.json` 与 `evidence/`。原云端使用既有基础镜像私有构建；通用 `Dockerfile.portable` 现已在全新目录、独立运行时及空QQ状态下完成实际构建、二维码与重启测试，独立模型调用通过。**新实例未扫码登录、未配对、未真实收发**；见 [无账号演练](无账号云端演练.md)。这是已有Docker主机上的干净部署，不等于全新操作系统安装验收。旧 Dockerfile.local-base/entrypoint-fix 仅用于复现历史构建，不作为新机器默认入口。
 
 ## 0. 必做·Agent：环境与范围
 
@@ -47,6 +47,7 @@ node scripts/select-account.mjs
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/set-model-key.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-dsh.ps1
+node scripts/wait-dsh.mjs
 node scripts/inspect-dsh.mjs
 node scripts/smoke-dsh.mjs
 ```
@@ -107,6 +108,7 @@ sudo install -m 644 .local/systemd/dsh-qq-personal-model.service /etc/systemd/sy
 sudo install -m 644 .local/systemd/dsh-qq-personal-bridge.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now dsh-qq-personal-model
+node scripts/wait-dsh.mjs
 node scripts/inspect-dsh.mjs
 node scripts/smoke-dsh.mjs
 ```
@@ -125,7 +127,9 @@ NAPCAT_IMAGE=dsh-qq-personal-napcat:4.18.41-stable bash scripts/create-cloud-nap
 sudo docker start dsh-qq-personal-napcat
 ```
 
-构建器固定官方 amd64 digest，并加入已修复的 X11 启动入口。默认从官方源拉取；只有连通失败时，才选可用镜像来源并设置 NAPCAT_BASE_IMAGE，且必须保留同一 `@sha256:…` 摘要，不能换 latest。记录实际镜像ID与构建结果。若缺文件/依赖或镜像拉取失败，停在此阶段定位，不回退到依赖原服务器镜像的历史 Dockerfile。这条通用构建路线需本次实际验收。
+构建器固定官方 amd64 digest，并加入已修复的 X11 启动入口及必要程序检查。完整缓存存在时验证架构后复用；否则默认从官方源拉取。网络失败可更换保持同一摘要的来源，不能换latest；云端网络持续不通时使用无账号演练文档中的官方缓存转运入口。记录实际镜像ID与构建结果，不回退到依赖原服务器镜像的历史Dockerfile。create脚本默认使用构建后的修复镜像，并要求其已经存在。
+
+同机隔离演练或多实例：仅在全新init后、setup-cloud-services前运行 `node scripts/configure-cloud-instance.mjs --name dsh-qq-实例名 --port-offset 10000`，实例名须使用小写英文/数字/连字符。随后容器、units及诊断日志按配置命名；本文默认名称的操作命令必须替换为实际生成的名称，不能操作旧实例。若只演练不登录，加 `--no-auto-login`。见无账号演练脚本的完整流程。
 
 **切换必做**：云端登录前先停止本地本包桥接、NapCat 和 DSH，避免同号冲突；只停止已识别的本包实例。不会迁移登录缓存。
 

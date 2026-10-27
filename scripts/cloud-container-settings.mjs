@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const cfg=JSON.parse(fs.readFileSync(new URL('../.local/config.json',import.meta.url)));
+const web=JSON.parse(fs.readFileSync(new URL('../.local/napcat/config/webui.json',import.meta.url)));
+const name=cfg.instanceName??'dsh-qq-personal';
+if(!/^dsh-qq-[a-z0-9-]{1,40}$/.test(name))throw new Error('Unsafe instance name');
+const urls=[new URL(cfg.onebotHttp),new URL(cfg.onebotWs)];
+if(urls.some(u=>u.hostname!=='127.0.0.1'))throw new Error('Container host endpoints must be loopback');
+const ports=[Number(urls[0].port),Number(urls[1].port),Number(web.port)];
+if(ports.some(p=>!Number.isInteger(p)||p<1024||p>65535)||new Set(ports).size!==3)throw new Error('Invalid ports');
+console.log([name+'-napcat',...ports].join(' '));

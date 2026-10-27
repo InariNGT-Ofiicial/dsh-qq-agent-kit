@@ -13,7 +13,9 @@ if(kind==='napcat'){
  console.log('Private management token: '+c.token);
 }else if(kind==='dsh'){
  const cfg=JSON.parse(fs.readFileSync(path.join(root,'.local/config.json'),'utf8'));
- const files=[path.join(cfg.dshHome,'logs/server-lab.out.log'),path.join(root,'.local/dsh-qq-personal-model.out.log')].filter(f=>fs.existsSync(f)).sort((a,b)=>fs.statSync(b).mtimeMs-fs.statSync(a).mtimeMs);
+ const instance=cfg.instanceName??'dsh-qq-personal';
+ if(!/^dsh-qq-[a-z0-9-]{1,40}$/.test(instance))throw new Error('Unsafe instance name');
+ const files=[path.join(cfg.dshHome,'logs/server-lab.out.log'),path.join(root,'.local',instance+'-model.out.log')].filter(f=>fs.existsSync(f)).sort((a,b)=>fs.statSync(b).mtimeMs-fs.statSync(a).mtimeMs);
  const urls=files.length?fs.readFileSync(files[0],'utf8').match(/https?:\/\/127\.0\.0\.1:\d+\/[^\s]*token=[^\s]+/g):null;
  if(!urls?.length)throw new Error('No current DSH startup URL found; check the isolated DSH is running.');
  const u=new URL(urls.at(-1));if(port)u.port=String(port);console.log('Private DSH startup URL: '+u.href);

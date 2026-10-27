@@ -11,7 +11,7 @@ function fixture(t){
  fs.mkdirSync(path.join(root,'scripts'));
  fs.mkdirSync(path.join(root,'.local/dsh-home/logs'),{recursive:true});
  fs.mkdirSync(path.join(root,'.local/napcat/config'),{recursive:true});
- for(const name of ['pair-code.mjs','configure-model-key.mjs','access-info.mjs'])fs.copyFileSync(new URL('../scripts/'+name,import.meta.url),path.join(root,'scripts',name));
+ for(const name of ['pair-code.mjs','configure-model-key.mjs','access-info.mjs','configure-cloud-instance.mjs','cloud-container-settings.mjs'])fs.copyFileSync(new URL('../scripts/'+name,import.meta.url),path.join(root,'scripts',name));
  const file=path.join(root,'.local/config.json');
  const cfg={selfId:'10001',allowedPeers:[],pairingNonce:'expired-fixture',pairingExpiresAt:1,dshHome:path.join(root,'.local/dsh-home'),provider:'fixture-provider',model:'fixture-model'};
  fs.writeFileSync(file,JSON.stringify(cfg));
@@ -26,6 +26,18 @@ test('pair renewal requires stopped declaration and preserves model configuratio
  assert.equal(saved.provider,f.cfg.provider);assert.ok(saved.pairingExpiresAt>Date.now());assert.match(r.stdout,/\/dsh-pair [a-f0-9]{16}/);
  saved.allowedPeers=['10002'];fs.writeFileSync(f.file,JSON.stringify(saved));
  const before=fs.readFileSync(f.file,'utf8');assert.match(f.run('pair-code.mjs',['--renew','--bridge-stopped']).stdout,/Already paired/);assert.equal(fs.readFileSync(f.file,'utf8'),before);
+});
+test('fresh cloud rehearsal assigns isolated ports, disables automatic login, and refuses reconfiguration',t=>{
+ const f=fixture(t),dir=path.join(f.root,'.local/napcat/config');
+ fs.writeFileSync(path.join(dir,'webui.json'),JSON.stringify({port:16099,autoLoginAccount:'10001'}));
+ fs.writeFileSync(path.join(dir,'onebot11_10001.json'),JSON.stringify({network:{httpServers:[{port:13000}],websocketServers:[{port:13001}]}}));
+ const args=['--name','dsh-qq-rehearsal','--port-offset','10000','--no-auto-login'];
+ assert.equal(f.run('configure-cloud-instance.mjs',args).status,0);
+ assert.equal(JSON.parse(fs.readFileSync(path.join(dir,'webui.json'))).autoLoginAccount,'');
+ assert.equal(JSON.parse(fs.readFileSync(f.file)).dshUrl,'http://127.0.0.1:23080');
+ assert.equal(f.run('cloud-container-settings.mjs').stdout.trim(),'dsh-qq-rehearsal-napcat 23000 23001 26099');
+ fs.mkdirSync(path.join(f.root,'.local/systemd'));
+ assert.notEqual(f.run('configure-cloud-instance.mjs',args).status,0);
 });
 test('key configuration preserves unrelated env and pairing without printing key',t=>{
  const f=fixture(t),env=path.join(f.cfg.dshHome,'.env'),fake='test_fixture_secret_not_real_12345';
