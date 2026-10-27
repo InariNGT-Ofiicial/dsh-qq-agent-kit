@@ -1,0 +1,17 @@
+{
+  "auditDate": "2026-10-27",
+  "dshClient": {
+    "repository": "https://github.com/Derpyu520/qq-bridge",
+    "commit": "a49877f4e58d04e47532d44b803360d0f001160d",
+    "path": "src/dsh-client.js",
+    "license": "MIT",
+    "localPath": "vendor/dsh-client.js"
+  },
+  "napcat": {
+    "version": "v4.18.41",
+    "url": "https://github.com/NapNeko/NapCatQQ/releases/download/v4.18.41/NapCat.Shell.zip",
+    "sha256": "6801f93e533846cea05f4f531874a0e84371ab2331c5585b57cd7e3b869cf96b",
+    "redistributed": false
+  },
+  "scope": "Private chat only. No groups, unsolicited sends, production profile edits or public API listeners."
+}

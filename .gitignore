@@ -1,0 +1,11 @@
+node_modules/
+.runtime/
+.local/
+*.log
+*.zip
+*.tar.gz
+config.json
+.env
+.env.*
+!.env.example
+__pycache__/

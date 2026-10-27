@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {randomBytes} from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'..');
+const selfId=process.argv[2];
+if(!/^\d{5,12}$/.test(selfId??'')) throw new Error('Usage: node scripts/init-local.mjs <bot QQ number>');
+const local=path.join(root,'.local');
+fs.mkdirSync(local,{recursive:true});
+const configFile=path.join(local,'config.json');
+if(fs.existsSync(configFile)) throw new Error('Local config exists; refusing to replace tokens or account.');
+const secret=()=>randomBytes(24).toString('hex');
+const cfg={selfId,allowedPeers:[],pairingNonce:randomBytes(8).toString('hex'),pairingExpiresAt:Date.now()+3600000,commandPrefix:'/dsh ',onebotHttp:'http://127.0.0.1:13000',onebotWs:'ws://127.0.0.1:13001',onebotToken:secret(),dshUrl:'http://127.0.0.1:13080',dshHome:path.join(local,'dsh-home'),workspace:path.join(local,'workspace'),provider:'deepseek-official',model:'deepseek-flash',preset:'qq-lab-chat'};
+for(const d of [cfg.dshHome,cfg.workspace,path.join(local,'napcat','config')]) fs.mkdirSync(d,{recursive:true});
+fs.writeFileSync(configFile,JSON.stringify(cfg,null,2),{mode:0o600});
+fs.writeFileSync(path.join(local,'napcat','config','webui.json'),JSON.stringify({host:'127.0.0.1',port:16099,token:secret(),autoLoginAccount:selfId,disableWebUI:false}),{mode:0o600});
+fs.writeFileSync(path.join(local,'napcat','config',`onebot11_${selfId}.json`),JSON.stringify({network:{httpServers:[{name:'lab-http',enable:true,host:'127.0.0.1',port:13000,token:cfg.onebotToken,enableCors:false,debug:false}],websocketServers:[{name:'lab-ws',enable:true,host:'127.0.0.1',port:13001,token:cfg.onebotToken,reportSelfMessage:false,messagePostFormat:'array',debug:false}]},enableLocalFile2Url:false,parseMultMsg:false}),{mode:0o600});
+console.log('Created local-only account config; groups disabled by bridge policy. Tokens not printed.');

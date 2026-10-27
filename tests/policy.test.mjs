@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {classify} from '../src/policy.mjs';
+import {onebot} from '../src/onebot.mjs';
+const cfg={selfId:'10001',allowedPeers:['10002'],commandPrefix:'/dsh ',pairingNonce:'nonce',pairingExpiresAt:100};
+const event={post_type:'message',message_type:'private',sub_type:'friend',self_id:10001,user_id:10002,message_id:1,message:[{type:'text',data:{text:'/dsh hello'}}]};
+test('authorized explicit private command accepted',()=>assert.equal(classify(event,cfg).kind,'prompt'));
+test('groups and strangers rejected before model',()=>{assert.equal(classify({...event,message_type:'group'},cfg).kind,'ignore');assert.equal(classify({...event,user_id:10003},cfg).kind,'denied');});
+test('wrong account and self echo rejected',()=>{assert.equal(classify({...event,self_id:99999},cfg).kind,'ignore');assert.equal(classify({...event,user_id:10001},cfg).kind,'ignore');});
+test('duplicates and normal private messages not forwarded',()=>{assert.equal(classify(event,cfg,new Set(['10001:10002:1'])).kind,'duplicate');assert.equal(classify({...event,message:[{type:'text',data:{text:'normal private text'}}]},cfg).kind,'ignore');});
+test('expired pairing, attachments and empty allowlist fail closed',()=>{const p={...event,message:[{type:'text',data:{text:'/dsh-pair nonce'}}]};assert.equal(classify(p,{...cfg,allowedPeers:[]},new Set(),101).kind,'denied');assert.equal(classify(p,{...cfg,allowedPeers:[]},new Set(),50).kind,'pair');assert.equal(classify(event,{...cfg,allowedPeers:[]}).kind,'denied');assert.equal(classify({...event,message:[{type:'image',data:{file:'x'}}]},cfg).kind,'ignore');});
+test('outbound API rejects group action and unapproved peer before network',async()=>{await assert.rejects(onebot(cfg,'send_group_msg',{}),/Unsupported/);await assert.rejects(onebot(cfg,'send_private_msg',{user_id:10003}),/denied/);});
