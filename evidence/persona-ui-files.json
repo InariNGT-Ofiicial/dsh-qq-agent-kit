@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-28T00:27:03.283Z",
+  "plugin": "0.2.1",
+  "host": "0.2.1-rc.2",
+  "sourceMatchesGenerated": true,
+  "realDshLoaderContainsPersona": true,
+  "fileHashes": {
+    "agent.md": "fb18ffb1e4c821f75b7687c7083663819fbe7741786a43a4b51d57a3a33eb3a1",
+    "PERSONA.md": "951391b00030abe4b5b63788af7f0ab37c1d1728288eca05d62b6c8d5cc09835",
+    "AGENTS.md": "80a26b51719cbf4b3a61b2d6f445ad310838db335f5141c484a8c6388012fd1f"
+  }
+}

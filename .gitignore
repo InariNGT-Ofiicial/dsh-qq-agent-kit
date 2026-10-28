@@ -9,3 +9,4 @@ config.json
 .env.*
 !.env.example
 __pycache__/
+**/.qq-control-persona/

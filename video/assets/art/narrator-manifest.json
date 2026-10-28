@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-28",
+  "reusePreviousNarratorAssets": false,
+  "files": [
+    {
+      "file": "narrator-qq-overwhelmed.png",
+      "sha256": "A2D1BDFAC5B1CF40DC4ACFDDD3C1AFEFED806448BE0677502F4F9A4865CA4FA0"
+    },
+    {
+      "file": "narrator-qq-scan.png",
+      "sha256": "91071C8174B6FB481290879171795C8340A78D30A9B8252A9272EAD52526B5E2"
+    },
+    {
+      "file": "narrator-qq-settings.png",
+      "sha256": "64309FE3040CC975774DF33A45BA283AA2FC3EDA43CCF14F9DCB4E329369AC62"
+    },
+    {
+      "file": "narrator-qq-welcome.png",
+      "sha256": "47678E92402EEB9296C8CDE6B220EB0ECAF00D1A9566E9FD0BF2F48051E9EC47"
+    }
+  ],
+  "generator": "Codex built-in image_gen"
+}

@@ -14,7 +14,7 @@ collect(JSON.parse(fs.readFileSync(path.join(root,'.local/napcat/config/webui.js
 const credentials=path.join(config.dshHome,'.credentials.yaml');
 if(fs.existsSync(credentials))collect(YAML.load(fs.readFileSync(credentials,'utf8'))?.records);
 for(const file of unique){
- if(/(^|\/)(node_modules|\.local|\.runtime|\.env)(\/|$)/.test(file))throw new Error('Private path would be published: '+file);
+ if(/(^|\/)(node_modules|\.local|\.runtime|\.env|\.qq-control-persona)(\/|$)/.test(file))throw new Error('Private path would be published: '+file);
  const data=fs.readFileSync(path.join(root,file),'utf8');
  if(secrets.some(s=>s&&data.includes(s)))throw new Error('Local private value found in: '+file);
 }

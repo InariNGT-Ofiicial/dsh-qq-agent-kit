@@ -1,6 +1,6 @@
 {
   "name": "dsh-qq-control",
-  "version": "0.1.3",
+  "version": "0.2.1",
   "type": "module",
   "main": "index.js",
   "description": "QQ 中控：授权群落盘、仅@回复与自主参与开关",
@@ -9,7 +9,9 @@
     "transport.mjs",
     "cordis.patch.yml",
     "README.md",
-    "client.js"
+    "client.js",
+    "persona.mjs",
+    "persona-service.mjs"
   ],
   "engines": {
     "node": ">=24",
@@ -17,13 +19,17 @@
   },
   "peerDependencies": {
     "@deepseek-ai/dsh-tools": "0.2.1-rc.2",
-    "@deepseek-ai/schemastery": "3.18.5"
+    "@deepseek-ai/schemastery": "3.18.5",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/dsh-tools": {
       "optional": true
     },
     "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-typert-protocol": {
       "optional": true
     }
   },
@@ -36,7 +42,8 @@
       "platform": "web",
       "inject": [
         "@deepseek-ai/dsh-client-ui-settings",
-        "@deepseek-ai/dsh-client-ui-plugin-manager"
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-connection"
       ]
     }
   },
