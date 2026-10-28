@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-28",
+  "plugin": "dsh-qq-control@0.1.3",
+  "host": "DSH 0.2.1-rc.2",
+  "tests": {"passed":17,"failed":0},
+  "native_install": true,
+  "native_ui_controls_visible": true,
+  "native_ui_to_remote_off_verified": true,
+  "private_chat_worker_unchanged": true,
+  "group_scope": "one explicitly authorized experimental group",
+  "mention_mode": {"ordinary_event":"record_only","mention_event":"replied","human_receipt_confirmed":true},
+  "autonomous_mode": {"ordinary_event":"replied","human_receipt_confirmed":true},
+  "final_controls": {"enabled":true,"recordMessages":true,"mode":"mention","cooldownSeconds":60,"maxRepliesPerHour":10},
+  "final_services": {"model":"active","private_bridge":"active","group_worker":"active","group_worker_boot_enabled":false},
+  "recovery_observed": ["QQ login expired","bridge restart budget exhausted","official mobile recovery required","human completed mobile recovery and QR confirmation","expected account online and group membership checked","dedicated bridges restarted"],
+  "no_claims": ["no unlimited uptime guarantee","no group historical context","no automatic timed proactive conversation","new account portable image real messaging remains separate missing test"]
+}
