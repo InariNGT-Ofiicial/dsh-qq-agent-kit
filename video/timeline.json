@@ -1,69 +1,69 @@
 {
-  "duration": 177.63,
+  "duration": 172.05,
   "scenes": [
     {
       "id": "scene0",
       "paragraph": "Q00",
       "start": 0.0,
-      "duration": 17.49,
-      "voiceDuration": 17.04
+      "duration": 14.229999999999999,
+      "voiceDuration": 13.78
     },
     {
       "id": "scene1",
       "paragraph": "Q01",
-      "start": 17.49,
+      "start": 14.23,
       "duration": 7.390000000000001,
       "voiceDuration": 6.94
     },
     {
       "id": "scene2",
       "paragraph": "Q02",
-      "start": 24.88,
-      "duration": 22.849999999999998,
-      "voiceDuration": 22.4
+      "start": 21.62,
+      "duration": 34.11,
+      "voiceDuration": 33.66
     },
     {
       "id": "scene3",
       "paragraph": "Q03",
-      "start": 47.73,
-      "duration": 19.45,
-      "voiceDuration": 19.0
+      "start": 55.73,
+      "duration": 18.87,
+      "voiceDuration": 18.42
     },
     {
       "id": "scene4",
       "paragraph": "Q04",
-      "start": 67.18,
-      "duration": 18.05,
-      "voiceDuration": 17.6
+      "start": 74.6,
+      "duration": 23.99,
+      "voiceDuration": 23.54
     },
     {
       "id": "scene5",
       "paragraph": "Q05",
-      "start": 85.23,
-      "duration": 21.65,
-      "voiceDuration": 21.2
+      "start": 98.59,
+      "duration": 16.09,
+      "voiceDuration": 15.64
     },
     {
       "id": "scene6",
       "paragraph": "Q06",
-      "start": 106.88,
-      "duration": 22.23,
-      "voiceDuration": 21.78
+      "start": 114.68,
+      "duration": 17.37,
+      "voiceDuration": 16.92
     },
     {
       "id": "scene7",
       "paragraph": "Q07",
-      "start": 129.11,
-      "duration": 23.61,
-      "voiceDuration": 23.16
+      "start": 132.05,
+      "duration": 20.77,
+      "voiceDuration": 20.32
     },
     {
       "id": "scene8",
       "paragraph": "Q08",
-      "start": 152.72,
-      "duration": 24.91,
-      "voiceDuration": 20.46
+      "start": 152.82,
+      "duration": 19.229999999999997,
+      "voiceDuration": 14.78
     }
   ],
-  "captions": 71
+  "captions": 70
 }

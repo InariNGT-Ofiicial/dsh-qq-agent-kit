@@ -1,0 +1,933 @@
+{
+  "paragraphs": [
+    {
+      "id": "Q00",
+      "duration": 13.78,
+      "display_text": "站内那些 DSH 接入 QQ 的教程，动不动就是十几分钟、二十几分钟。现在，把操作交给 Agent。你要做的交接，只需要三秒钟：把包拖进去，按下回车。来，直接看操作。",
+      "captions": [
+        {
+          "id": "Q00S00-c1",
+          "sentence_id": "Q00S00",
+          "paragraph_id": "Q00",
+          "text": "站内那些 DSH 接入 QQ 的教程",
+          "start": 0.01,
+          "end": 2.61
+        },
+        {
+          "id": "Q00S00-c2",
+          "sentence_id": "Q00S00",
+          "paragraph_id": "Q00",
+          "text": "，动不动就是十几分钟、二十几分钟。",
+          "start": 2.83,
+          "end": 5.33
+        },
+        {
+          "id": "Q00S01-c1",
+          "sentence_id": "Q00S01",
+          "paragraph_id": "Q00",
+          "text": "现在，把操作交给 Agent。",
+          "start": 5.51,
+          "end": 7.41
+        },
+        {
+          "id": "Q00S02-c1",
+          "sentence_id": "Q00S02",
+          "paragraph_id": "Q00",
+          "text": "你要做的交接，只需要三秒钟：",
+          "start": 7.63,
+          "end": 9.83
+        },
+        {
+          "id": "Q00S02-c2",
+          "sentence_id": "Q00S02",
+          "paragraph_id": "Q00",
+          "text": "把包拖进去，按下回车。",
+          "start": 10.09,
+          "end": 12.03
+        },
+        {
+          "id": "Q00S03-c1",
+          "sentence_id": "Q00S03",
+          "paragraph_id": "Q00",
+          "text": "来，直接看操作。",
+          "start": 12.35,
+          "end": 13.75
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q00S00",
+          "text": "站内那些 DSH 接入 QQ 的教程，动不动就是十几分钟、二十几分钟。",
+          "start": 0.01,
+          "end": 5.33,
+          "matched_character_fraction": 0.9286,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q00S01",
+          "text": "现在，把操作交给 Agent。",
+          "start": 5.51,
+          "end": 7.41,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q00S02",
+          "text": "你要做的交接，只需要三秒钟：把包拖进去，按下回车。",
+          "start": 7.63,
+          "end": 12.03,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q00S03",
+          "text": "来，直接看操作。",
+          "start": 12.35,
+          "end": 13.75,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q01",
+      "duration": 6.94,
+      "display_text": "拖进对话框，按下回车。好，交接完成！后面的活儿，让 Agent 接着干。",
+      "captions": [
+        {
+          "id": "Q01S00-c1",
+          "sentence_id": "Q01S00",
+          "paragraph_id": "Q01",
+          "text": "拖进对话框，按下回车。",
+          "start": 0,
+          "end": 2.27
+        },
+        {
+          "id": "Q01S01-c1",
+          "sentence_id": "Q01S01",
+          "paragraph_id": "Q01",
+          "text": "好，交接完成！",
+          "start": 2.79,
+          "end": 4.01
+        },
+        {
+          "id": "Q01S02-c1",
+          "sentence_id": "Q01S02",
+          "paragraph_id": "Q01",
+          "text": "后面的活儿，让 Agent 接着干。",
+          "start": 4.53,
+          "end": 6.55
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q01S00",
+          "text": "拖进对话框，按下回车。",
+          "start": 0,
+          "end": 2.27,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q01S01",
+          "text": "好，交接完成！",
+          "start": 2.79,
+          "end": 4.01,
+          "matched_character_fraction": 0.6,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q01S02",
+          "text": "后面的活儿，让 Agent 接着干。",
+          "start": 4.53,
+          "end": 6.55,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "duration": 33.66,
+      "display_text": "先说路线。QQ 官方支持机器人账号，还提供了 DSH 的官方接入插件，名字叫 dsh-qqbot。在插件页安装它，再到设置里的 QQ 机器人，用手机 QQ 扫码绑定，就能接起来。我们除此之外，还支持接入你自己的 QQ 小号。两种账号，都可以在本地部署，也可以放到云端。四条路线就是：官方 bot 本地、官方 bot 云端、QQ 小号本地、QQ 小号云端。选好一条，告诉 Agent，它就按对应路线开工。",
+      "captions": [
+        {
+          "id": "Q02S00-c1",
+          "sentence_id": "Q02S00",
+          "paragraph_id": "Q02",
+          "text": "先说路线。",
+          "start": 0,
+          "end": 0.67
+        },
+        {
+          "id": "Q02S01-c1",
+          "sentence_id": "Q02S01",
+          "paragraph_id": "Q02",
+          "text": "QQ 官方支持机器人账号，",
+          "start": 1.12,
+          "end": 3.12
+        },
+        {
+          "id": "Q02S01-c2",
+          "sentence_id": "Q02S01",
+          "paragraph_id": "Q02",
+          "text": "还提供了 DSH 的官方接入插件，",
+          "start": 3.13,
+          "end": 6.15
+        },
+        {
+          "id": "Q02S01-c3",
+          "sentence_id": "Q02S01",
+          "paragraph_id": "Q02",
+          "text": "名字叫 dsh-qqbot。",
+          "start": 6.5,
+          "end": 8.865
+        },
+        {
+          "id": "Q02S02-c1",
+          "sentence_id": "Q02S02",
+          "paragraph_id": "Q02",
+          "text": "在插件页安装它，",
+          "start": 8.97,
+          "end": 10.45
+        },
+        {
+          "id": "Q02S02-c2",
+          "sentence_id": "Q02S02",
+          "paragraph_id": "Q02",
+          "text": "再到设置里的 QQ 机器人，",
+          "start": 10.53,
+          "end": 12.64
+        },
+        {
+          "id": "Q02S02-c3",
+          "sentence_id": "Q02S02",
+          "paragraph_id": "Q02",
+          "text": "用手机 QQ 扫码绑定，就能接起来。",
+          "start": 12.65,
+          "end": 15.58
+        },
+        {
+          "id": "Q02S03-c1",
+          "sentence_id": "Q02S03",
+          "paragraph_id": "Q02",
+          "text": "我们除此之外，",
+          "start": 15.59,
+          "end": 16.459999999999997
+        },
+        {
+          "id": "Q02S03-c2",
+          "sentence_id": "Q02S03",
+          "paragraph_id": "Q02",
+          "text": "还支持接入你自己的 QQ 小号。",
+          "start": 16.47,
+          "end": 18.52
+        },
+        {
+          "id": "Q02S04-c1",
+          "sentence_id": "Q02S04",
+          "paragraph_id": "Q02",
+          "text": "两种账号，都可以在本地部署，",
+          "start": 18.53,
+          "end": 20.88
+        },
+        {
+          "id": "Q02S04-c2",
+          "sentence_id": "Q02S04",
+          "paragraph_id": "Q02",
+          "text": "也可以放到云端。",
+          "start": 20.89,
+          "end": 22.41
+        },
+        {
+          "id": "Q02S05-c1",
+          "sentence_id": "Q02S05",
+          "paragraph_id": "Q02",
+          "text": "四条路线就是：官方 bot 本地、",
+          "start": 22.84,
+          "end": 25.06
+        },
+        {
+          "id": "Q02S05-c2",
+          "sentence_id": "Q02S05",
+          "paragraph_id": "Q02",
+          "text": "官方 bot 云端、QQ 小号本地、",
+          "start": 25.07,
+          "end": 27.49
+        },
+        {
+          "id": "Q02S05-c3",
+          "sentence_id": "Q02S05",
+          "paragraph_id": "Q02",
+          "text": "QQ 小号云端。",
+          "start": 27.89,
+          "end": 29.279999999999998
+        },
+        {
+          "id": "Q02S06-c1",
+          "sentence_id": "Q02S06",
+          "paragraph_id": "Q02",
+          "text": "选好一条，告诉 Agent，",
+          "start": 29.29,
+          "end": 31.43
+        },
+        {
+          "id": "Q02S06-c2",
+          "sentence_id": "Q02S06",
+          "paragraph_id": "Q02",
+          "text": "它就按对应路线开工。",
+          "start": 31.51,
+          "end": 33.15
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q02S00",
+          "text": "先说路线。",
+          "start": 0,
+          "end": 0.67,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S01",
+          "text": "QQ 官方支持机器人账号，还提供了 DSH 的官方接入插件，名字叫 dsh-qqbot。",
+          "start": 1.12,
+          "end": 8.865,
+          "matched_character_fraction": 0.9167,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S02",
+          "text": "在插件页安装它，再到设置里的 QQ 机器人，用手机 QQ 扫码绑定，就能接起来。",
+          "start": 8.97,
+          "end": 15.58,
+          "matched_character_fraction": 0.9688,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S03",
+          "text": "我们除此之外，还支持接入你自己的 QQ 小号。",
+          "start": 15.59,
+          "end": 18.52,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S04",
+          "text": "两种账号，都可以在本地部署，也可以放到云端。",
+          "start": 18.53,
+          "end": 22.41,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S05",
+          "text": "四条路线就是：官方 bot 本地、官方 bot 云端、QQ 小号本地、QQ 小号云端。",
+          "start": 22.84,
+          "end": 29.279999999999998,
+          "matched_character_fraction": 0.8125,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q02S06",
+          "text": "选好一条，告诉 Agent，它就按对应路线开工。",
+          "start": 29.29,
+          "end": 33.15,
+          "matched_character_fraction": 0.9,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "duration": 18.42,
+      "display_text": "Agent 会检查环境、安装依赖、生成配置，再把模型和 QQ 接起来。轮到扫码的时候，它会叫你拿手机确认。接着发条消息，收到回复，就完成验收。本地可以马上试起来；搬到云端，你关掉电脑，她也能继续聊天。",
+      "captions": [
+        {
+          "id": "Q03S00-c1",
+          "sentence_id": "Q03S00",
+          "paragraph_id": "Q03",
+          "text": "Agent 会检查环境、安装依赖、",
+          "start": 0,
+          "end": 2.83
+        },
+        {
+          "id": "Q03S00-c2",
+          "sentence_id": "Q03S00",
+          "paragraph_id": "Q03",
+          "text": "生成配置，再把模型和 QQ 接起来。",
+          "start": 2.95,
+          "end": 6.01
+        },
+        {
+          "id": "Q03S01-c1",
+          "sentence_id": "Q03S01",
+          "paragraph_id": "Q03",
+          "text": "轮到扫码的时候，它会叫你拿手机确认。",
+          "start": 6.39,
+          "end": 9.33
+        },
+        {
+          "id": "Q03S02-c1",
+          "sentence_id": "Q03S02",
+          "paragraph_id": "Q03",
+          "text": "接着发条消息，收到回复，就完成验收。",
+          "start": 9.55,
+          "end": 13.1133
+        },
+        {
+          "id": "Q03S03-c1",
+          "sentence_id": "Q03S03",
+          "paragraph_id": "Q03",
+          "text": "本地可以马上试起来；搬到云端，",
+          "start": 13.37,
+          "end": 16.07
+        },
+        {
+          "id": "Q03S03-c2",
+          "sentence_id": "Q03S03",
+          "paragraph_id": "Q03",
+          "text": "你关掉电脑，她也能继续聊天。",
+          "start": 16.25,
+          "end": 18.37
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q03S00",
+          "text": "Agent 会检查环境、安装依赖、生成配置，再把模型和 QQ 接起来。",
+          "start": 0,
+          "end": 6.01,
+          "matched_character_fraction": 0.8571,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q03S01",
+          "text": "轮到扫码的时候，它会叫你拿手机确认。",
+          "start": 6.39,
+          "end": 9.33,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q03S02",
+          "text": "接着发条消息，收到回复，就完成验收。",
+          "start": 9.55,
+          "end": 13.1133,
+          "matched_character_fraction": 0.8667,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q03S03",
+          "text": "本地可以马上试起来；搬到云端，你关掉电脑，她也能继续聊天。",
+          "start": 13.37,
+          "end": 18.37,
+          "matched_character_fraction": 0.96,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "duration": 23.54,
+      "display_text": "接上之后，打开 DSH 的 QQ 中控，就能直接调整群聊开关、消息落盘、回复模式和冷却时间。现在还加上了人格文件编辑：写好工作约定和人物设定，预览一下，再保存到选定的工作区。平时怎么聊，什么时候接话，都能安排明白。",
+      "captions": [
+        {
+          "id": "Q04S00-c1",
+          "sentence_id": "Q04S00",
+          "paragraph_id": "Q04",
+          "text": "接上之后，",
+          "start": 1.43,
+          "end": 2.25
+        },
+        {
+          "id": "Q04S00-c2",
+          "sentence_id": "Q04S00",
+          "paragraph_id": "Q04",
+          "text": "打开 DSH 的 QQ 中控，",
+          "start": 2.43,
+          "end": 4.47
+        },
+        {
+          "id": "Q04S00-c3",
+          "sentence_id": "Q04S00",
+          "paragraph_id": "Q04",
+          "text": "就能直接调整群聊开关、消息落盘、",
+          "start": 4.73,
+          "end": 7.77
+        },
+        {
+          "id": "Q04S00-c4",
+          "sentence_id": "Q04S00",
+          "paragraph_id": "Q04",
+          "text": "回复模式和冷却时间。",
+          "start": 8.01,
+          "end": 9.79
+        },
+        {
+          "id": "Q04S01-c1",
+          "sentence_id": "Q04S01",
+          "paragraph_id": "Q04",
+          "text": "现在还加上了人格文件编辑：",
+          "start": 10.25,
+          "end": 12.57
+        },
+        {
+          "id": "Q04S01-c2",
+          "sentence_id": "Q04S01",
+          "paragraph_id": "Q04",
+          "text": "写好工作约定和人物设定，预览一下，",
+          "start": 12.87,
+          "end": 15.89
+        },
+        {
+          "id": "Q04S01-c3",
+          "sentence_id": "Q04S01",
+          "paragraph_id": "Q04",
+          "text": "再保存到选定的工作区。",
+          "start": 16.27,
+          "end": 18.605
+        },
+        {
+          "id": "Q04S02-c1",
+          "sentence_id": "Q04S02",
+          "paragraph_id": "Q04",
+          "text": "平时怎么聊，什么时候接话，",
+          "start": 19.45,
+          "end": 21.87
+        },
+        {
+          "id": "Q04S02-c2",
+          "sentence_id": "Q04S02",
+          "paragraph_id": "Q04",
+          "text": "都能安排明白。",
+          "start": 22.09,
+          "end": 23.09
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q04S00",
+          "text": "接上之后，打开 DSH 的 QQ 中控，就能直接调整群聊开关、消息落盘、回复模式和冷却时间。",
+          "start": 1.43,
+          "end": 9.79,
+          "matched_character_fraction": 0.9459,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q04S01",
+          "text": "现在还加上了人格文件编辑：写好工作约定和人物设定，预览一下，再保存到选定的工作区。",
+          "start": 10.25,
+          "end": 18.605,
+          "matched_character_fraction": 0.9459,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q04S02",
+          "text": "平时怎么聊，什么时候接话，都能安排明白。",
+          "start": 19.45,
+          "end": 23.09,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "duration": 15.64,
+      "display_text": "群消息也能自动落盘。消息进来，先按群和日期记好，再决定要不要回复。这样，你可以让她安静地听，也可以让她参与聊天。想回顾大家聊了什么，直接打开记录就能看。",
+      "captions": [
+        {
+          "id": "Q05S00-c1",
+          "sentence_id": "Q05S00",
+          "paragraph_id": "Q05",
+          "text": "群消息也能自动落盘。",
+          "start": 0,
+          "end": 1.91
+        },
+        {
+          "id": "Q05S01-c1",
+          "sentence_id": "Q05S01",
+          "paragraph_id": "Q05",
+          "text": "消息进来，先按群和日期记好，",
+          "start": 2.39,
+          "end": 5.16
+        },
+        {
+          "id": "Q05S01-c2",
+          "sentence_id": "Q05S01",
+          "paragraph_id": "Q05",
+          "text": "再决定要不要回复。",
+          "start": 5.17,
+          "end": 6.75
+        },
+        {
+          "id": "Q05S02-c1",
+          "sentence_id": "Q05S02",
+          "paragraph_id": "Q05",
+          "text": "这样，你可以让她安静地听，",
+          "start": 7.49,
+          "end": 9.68
+        },
+        {
+          "id": "Q05S02-c2",
+          "sentence_id": "Q05S02",
+          "paragraph_id": "Q05",
+          "text": "也可以让她参与聊天。",
+          "start": 9.69,
+          "end": 11.57
+        },
+        {
+          "id": "Q05S03-c1",
+          "sentence_id": "Q05S03",
+          "paragraph_id": "Q05",
+          "text": "想回顾大家聊了什么，",
+          "start": 12.11,
+          "end": 13.64
+        },
+        {
+          "id": "Q05S03-c2",
+          "sentence_id": "Q05S03",
+          "paragraph_id": "Q05",
+          "text": "直接打开记录就能看。",
+          "start": 13.65,
+          "end": 15.53
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q05S00",
+          "text": "群消息也能自动落盘。",
+          "start": 0,
+          "end": 1.91,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q05S01",
+          "text": "消息进来，先按群和日期记好，再决定要不要回复。",
+          "start": 2.39,
+          "end": 6.75,
+          "matched_character_fraction": 0.95,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q05S02",
+          "text": "这样，你可以让她安静地听，也可以让她参与聊天。",
+          "start": 7.49,
+          "end": 11.57,
+          "matched_character_fraction": 0.9,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q05S03",
+          "text": "想回顾大家聊了什么，直接打开记录就能看。",
+          "start": 12.11,
+          "end": 15.53,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "duration": 16.92,
+      "display_text": "想让她安静一点，就选仅艾特回复：叫到她，她再接话。想让她一起聊，就切到自主参与：发来新消息，她就可以接上。再配好冷却时间和每小时回复上限，聊天节奏就稳了。需要休息的时候，把总开关关掉就好。",
+      "captions": [
+        {
+          "id": "Q06S00-c1",
+          "sentence_id": "Q06S00",
+          "paragraph_id": "Q06",
+          "text": "想让她安静一点，就选仅艾特回复：",
+          "start": 0,
+          "end": 2.33
+        },
+        {
+          "id": "Q06S00-c2",
+          "sentence_id": "Q06S00",
+          "paragraph_id": "Q06",
+          "text": "叫到她，她再接话。",
+          "start": 2.55,
+          "end": 4.09
+        },
+        {
+          "id": "Q06S01-c1",
+          "sentence_id": "Q06S01",
+          "paragraph_id": "Q06",
+          "text": "想让她一起聊，就切到自主参与：",
+          "start": 4.53,
+          "end": 6.86
+        },
+        {
+          "id": "Q06S01-c2",
+          "sentence_id": "Q06S01",
+          "paragraph_id": "Q06",
+          "text": "发来新消息，她就可以接上。",
+          "start": 6.87,
+          "end": 9.31
+        },
+        {
+          "id": "Q06S02-c1",
+          "sentence_id": "Q06S02",
+          "paragraph_id": "Q06",
+          "text": "再配好冷却时间和每小时回复上限，",
+          "start": 9.67,
+          "end": 12.31
+        },
+        {
+          "id": "Q06S02-c2",
+          "sentence_id": "Q06S02",
+          "paragraph_id": "Q06",
+          "text": "聊天节奏就稳了。",
+          "start": 12.39,
+          "end": 13.96
+        },
+        {
+          "id": "Q06S03-c1",
+          "sentence_id": "Q06S03",
+          "paragraph_id": "Q06",
+          "text": "需要休息的时候，把总开关关掉就好。",
+          "start": 13.97,
+          "end": 16.87
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q06S00",
+          "text": "想让她安静一点，就选仅艾特回复：叫到她，她再接话。",
+          "start": 0,
+          "end": 4.09,
+          "matched_character_fraction": 0.6667,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q06S01",
+          "text": "想让她一起聊，就切到自主参与：发来新消息，她就可以接上。",
+          "start": 4.53,
+          "end": 9.31,
+          "matched_character_fraction": 0.9167,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q06S02",
+          "text": "再配好冷却时间和每小时回复上限，聊天节奏就稳了。",
+          "start": 9.67,
+          "end": 13.96,
+          "matched_character_fraction": 0.9545,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q06S03",
+          "text": "需要休息的时候，把总开关关掉就好。",
+          "start": 13.97,
+          "end": 16.87,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "duration": 20.32,
+      "display_text": "交接包里，安装脚本、检查工具、测试和恢复步骤都备齐了。本地接入、云端收发，还有群聊落盘和两种回复模式，我们都实际跑过。Agent 可以照着这些步骤部署、检查、排查问题，你只要和它确认账号与使用方式就行。",
+      "captions": [
+        {
+          "id": "Q07S00-c1",
+          "sentence_id": "Q07S00",
+          "paragraph_id": "Q07",
+          "text": "交接包里，安装脚本、检查工具、",
+          "start": 0,
+          "end": 3.11
+        },
+        {
+          "id": "Q07S00-c2",
+          "sentence_id": "Q07S00",
+          "paragraph_id": "Q07",
+          "text": "测试和恢复步骤都备齐了。",
+          "start": 3.37,
+          "end": 5.61
+        },
+        {
+          "id": "Q07S01-c1",
+          "sentence_id": "Q07S01",
+          "paragraph_id": "Q07",
+          "text": "本地接入、云端收发，",
+          "start": 5.95,
+          "end": 8.11
+        },
+        {
+          "id": "Q07S01-c2",
+          "sentence_id": "Q07S01",
+          "paragraph_id": "Q07",
+          "text": "还有群聊落盘和两种回复模式，",
+          "start": 8.49,
+          "end": 10.78
+        },
+        {
+          "id": "Q07S01-c3",
+          "sentence_id": "Q07S01",
+          "paragraph_id": "Q07",
+          "text": "我们都实际跑过。",
+          "start": 10.79,
+          "end": 12.58
+        },
+        {
+          "id": "Q07S02-c1",
+          "sentence_id": "Q07S02",
+          "paragraph_id": "Q07",
+          "text": "Agent 可以照着这些步骤部署、",
+          "start": 12.59,
+          "end": 15.01
+        },
+        {
+          "id": "Q07S02-c2",
+          "sentence_id": "Q07S02",
+          "paragraph_id": "Q07",
+          "text": "检查、排查问题，",
+          "start": 15.13,
+          "end": 16.7
+        },
+        {
+          "id": "Q07S02-c3",
+          "sentence_id": "Q07S02",
+          "paragraph_id": "Q07",
+          "text": "你只要和它确认账号与使用方式就行。",
+          "start": 16.71,
+          "end": 20.15
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q07S00",
+          "text": "交接包里，安装脚本、检查工具、测试和恢复步骤都备齐了。",
+          "start": 0,
+          "end": 5.61,
+          "matched_character_fraction": 0.913,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q07S01",
+          "text": "本地接入、云端收发，还有群聊落盘和两种回复模式，我们都实际跑过。",
+          "start": 5.95,
+          "end": 12.58,
+          "matched_character_fraction": 0.9643,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q07S02",
+          "text": "Agent 可以照着这些步骤部署、检查、排查问题，你只要和它确认账号与使用方式就行。",
+          "start": 12.59,
+          "end": 20.15,
+          "matched_character_fraction": 0.973,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "duration": 14.78,
+      "display_text": "交接包交给 Agent，你负责决定怎么用她。欢迎加入我们的 Agent 账号社会实验群：小肥鱼幼儿园一班。群号就在画面上。来一起搭建、一起观察，看看 Agent 走进真实群聊以后，能玩出些什么！",
+      "captions": [
+        {
+          "id": "Q08S00-c1",
+          "sentence_id": "Q08S00",
+          "paragraph_id": "Q08",
+          "text": "交接包交给 Agent，",
+          "start": 0,
+          "end": 1.682
+        },
+        {
+          "id": "Q08S00-c2",
+          "sentence_id": "Q08S00",
+          "paragraph_id": "Q08",
+          "text": "你负责决定怎么用她。",
+          "start": 1.69,
+          "end": 3.16
+        },
+        {
+          "id": "Q08S01-c1",
+          "sentence_id": "Q08S01",
+          "paragraph_id": "Q08",
+          "text": "欢迎加入我们的 Agent 账号社会",
+          "start": 3.47,
+          "end": 5.44
+        },
+        {
+          "id": "Q08S01-c2",
+          "sentence_id": "Q08S01",
+          "paragraph_id": "Q08",
+          "text": "实验群：小肥鱼幼儿园一班。",
+          "start": 5.45,
+          "end": 7.58
+        },
+        {
+          "id": "Q08S02-c1",
+          "sentence_id": "Q08S02",
+          "paragraph_id": "Q08",
+          "text": "群号就在画面上。",
+          "start": 7.77,
+          "end": 8.99
+        },
+        {
+          "id": "Q08S03-c1",
+          "sentence_id": "Q08S03",
+          "paragraph_id": "Q08",
+          "text": "来一起搭建、一起观察，",
+          "start": 9.13,
+          "end": 11.07
+        },
+        {
+          "id": "Q08S03-c2",
+          "sentence_id": "Q08S03",
+          "paragraph_id": "Q08",
+          "text": "看看 Agent 走进真实群聊以后，",
+          "start": 11.27,
+          "end": 13.61
+        },
+        {
+          "id": "Q08S03-c3",
+          "sentence_id": "Q08S03",
+          "paragraph_id": "Q08",
+          "text": "能玩出些什么！",
+          "start": 13.75,
+          "end": 14.63
+        }
+      ],
+      "sentences": [
+        {
+          "id": "Q08S00",
+          "text": "交接包交给 Agent，你负责决定怎么用她。",
+          "start": 0,
+          "end": 3.16,
+          "matched_character_fraction": 0.6842,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q08S01",
+          "text": "欢迎加入我们的 Agent 账号社会实验群：小肥鱼幼儿园一班。",
+          "start": 3.47,
+          "end": 7.58,
+          "matched_character_fraction": 0.7778,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q08S02",
+          "text": "群号就在画面上。",
+          "start": 7.77,
+          "end": 8.99,
+          "matched_character_fraction": 1.0,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        },
+        {
+          "id": "Q08S03",
+          "text": "来一起搭建、一起观察，看看 Agent 走进真实群聊以后，能玩出些什么！",
+          "start": 9.13,
+          "end": 14.63,
+          "matched_character_fraction": 0.8667,
+          "timing_method": "ASR word timestamps with character matching; unmatched positions interpolated"
+        }
+      ]
+    }
+  ]
+}

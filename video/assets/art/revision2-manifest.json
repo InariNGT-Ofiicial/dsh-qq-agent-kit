@@ -1,0 +1,34 @@
+{
+  "generator": "Codex built-in image_gen",
+  "reference_credit": "zipzippipe",
+  "files": [
+    {
+      "file": "narrator-ref-welcome.png",
+      "sha256": "4b4bdc6f8b68f35c2d5a4dedcb2c3222d4ef11fba27d2d49297e0b59729bc1d9"
+    },
+    {
+      "file": "narrator-ref-scan.png",
+      "sha256": "c774a085f21deaa1b2564811fd43fc0e59c9ac26ba4adbd6f2c1bb4414ab045e"
+    },
+    {
+      "file": "narrator-ref-settings.png",
+      "sha256": "bdc3d15cf5eb8387b98cc3c39d22c29a8e029cc990613959a6e738c4aee0757c"
+    },
+    {
+      "file": "narrator-ref-overwhelmed.png",
+      "sha256": "5ccebcbd3ebe44bb344e82de3e7e951ae458aa6b478edc72c11c32ce42479a72"
+    },
+    {
+      "file": "handoff-comic-ref.png",
+      "sha256": "a2337332c639e042cbc4bcd664af57eb925a3125d5fdc8ad54c8d5bdfc62b071"
+    },
+    {
+      "file": "cloud-comic-ref.png",
+      "sha256": "fb39a481e77843663769c977fb84a322b002019c8f666abcd740da6daf0c3efc"
+    },
+    {
+      "file": "xiaofeiyu-comic.png",
+      "sha256": "b3f88866bd1debc833ae3b3b3b7fb97281261c0bf3338ea396b4a89a5a32f941"
+    }
+  ]
+}
